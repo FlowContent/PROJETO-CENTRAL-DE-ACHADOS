@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Achados | Grupo de Ofertas no WhatsApp</title>
+<meta name="description" content="Entre no grupo de WhatsApp da Central de Achados e receba as melhores ofertas da Amazon, Mercado Livre, Shopee, Magalu, Casas Bahia e Netshoes todos os dias.">
+<link rel="icon" href="img/logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Kaushan+Script&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     LINK DO GRUPO: altere a constante WHATSAPP_LINK no final
+     do arquivo. Todos os botões usam esse link.
+     ========================================================= */
+  :root{
+    --bg:#1B1B1D;
+    --bg-2:#2A2A2E;
+    --bg-3:#333338;
+    --yellow:#FFC814;
+    --yellow-2:#FFD84D;
+    --navy:#0E1F7A;
+    --white:#FFFFFF;
+    --muted:#B9B9C0;
+    --green:#25D366;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Poppins',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--white);
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+
+  /* ================= HERO ================= */
+  .hero{
+    position:relative;min-height:100vh;overflow:hidden;isolation:isolate;
+    background:
+      radial-gradient(ellipse at 35% 40%,#3A3A3F 0%,transparent 60%),
+      linear-gradient(135deg,var(--bg-2) 0%,var(--bg) 70%);
+    display:flex;flex-direction:column;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    display:flex;align-items:center;gap:24px;
+    padding:28px 0;position:relative;z-index:10;
+  }
+  .nav .brand{margin-right:auto;flex:none}
+  .hero > header{width:100%}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:var(--yellow)}
+  .brand img{width:46px;height:46px;border-radius:12px;border:2px solid var(--yellow)}
+  .brand span{line-height:1}
+  .brand small{display:block;font-size:11px;font-weight:600;color:var(--white);letter-spacing:2px;text-transform:uppercase;margin-top:3px}
+  .menu{display:flex;gap:38px;list-style:none}
+  .menu a{font-size:15px;font-weight:500;color:#E6E6EA;position:relative;padding:6px 0;transition:color .2s}
+  .menu a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--yellow);transition:width .25s;
+  }
+  .menu a:hover,.menu a.active{color:var(--yellow)}
+  .menu a:hover::after,.menu a.active::after{width:100%}
+  .nav-right{display:flex;align-items:center;gap:22px}
+  .nav-ig{
+    display:flex;align-items:center;gap:8px;color:#E6E6EA;font-size:13px;font-weight:500;
+    border-bottom:1px solid #6A6A70;padding-bottom:6px;min-width:150px;justify-content:space-between;
+  }
+  .nav-ig svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2}
+  .btn-sm{
+    background:var(--yellow);color:var(--bg);
+    padding:9px 20px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.6px;text-transform:uppercase;
+    transition:transform .2s,background .2s;
+  }
+  .btn-sm:hover{background:var(--yellow-2);transform:translateY(-2px)}
+  .menu-toggle{display:none}
+
+  /* ---------- HERO GRID ---------- */
+  .hero-grid{
+    flex:1;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:20px;
+    position:relative;padding-bottom:70px;
+  }
+  .copy{position:relative;z-index:3}
+  .script{
+    font-family:'Kaushan Script',cursive;color:var(--yellow);
+    font-size:clamp(30px,3.4vw,50px);line-height:1;
+    display:block;margin-bottom:6px;
+  }
+  h1{
+    font-family:'Anton',Impact,sans-serif;font-weight:400;
+    font-size:clamp(70px,10.5vw,160px);line-height:.9;letter-spacing:1px;
+    text-transform:uppercase;color:var(--white);
+  }
+  h1 span{color:var(--yellow)}
+  .subtitle{
+    margin-top:14px;font-weight:700;text-transform:uppercase;
+    font-size:clamp(16px,1.7vw,24px);letter-spacing:.4px;
+  }
+  .actions{display:flex;align-items:center;gap:26px;margin-top:30px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--yellow);color:var(--bg);
+    padding:15px 32px;border-radius:999px;
+    font-weight:800;font-size:15px;letter-spacing:.8px;text-transform:uppercase;
+    box-shadow:0 10px 30px rgba(255,200,20,.25);
+    transition:transform .2s,box-shadow .2s,background .2s;
+  }
+  .btn svg{width:22px;height:22px;fill:currentColor}
+  .btn:hover{transform:translateY(-3px);background:var(--yellow-2);box-shadow:0 16px 36px rgba(255,200,20,.35)}
+  /* botão principal do topo: maior e amarelo mais forte */
+  .actions .btn{
+    background:#FFD400;
+    padding:22px 48px;gap:14px;
+    min-width:470px;justify-content:center;
+    font-size:19px;letter-spacing:1px;
+    box-shadow:0 14px 40px rgba(255,212,0,.45),0 0 0 4px rgba(255,212,0,.15);
+  }
+  .actions .btn svg{width:30px;height:30px}
+  .actions .btn:hover{background:#FFE033;box-shadow:0 20px 48px rgba(255,212,0,.55),0 0 0 6px rgba(255,212,0,.2)}
+  @media (max-width:560px){
+    .actions .btn{padding:20px 24px;font-size:17px;width:100%;min-width:0;max-width:none;justify-content:center}
+  }
+  .link{font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:color .2s}
+  .link:hover{color:var(--yellow)}
+  .link svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.5;transition:transform .2s}
+  .link:hover svg{transform:translateX(4px)}
+  .desc{margin-top:26px;max-width:470px;color:var(--muted);font-size:15px;line-height:1.6}
+
+  /* ---------- VISUAL DIREITA ---------- */
+  .visual{position:relative;height:620px}
+  /* mancha amarela orgânica */
+  .blob{
+    position:absolute;z-index:0;
+    width:640px;height:640px;right:-200px;bottom:-200px;
+    background:var(--yellow);
+    border-radius:58% 42% 38% 62% / 52% 38% 62% 48%;
+    animation:morph 12s ease-in-out infinite;
+  }
+  .blob-2{
+    width:260px;height:260px;right:auto;left:30px;bottom:-60px;
+    border-radius:50% 50% 40% 60% / 60% 40% 60% 40%;
+    animation-duration:9s;
+  }
+  @keyframes morph{
+    0%,100%{border-radius:58% 42% 38% 62% / 52% 38% 62% 48%}
+    50%{border-radius:42% 58% 62% 38% / 40% 60% 40% 60%}
+  }
+  /* setas (chevrons) decorativas */
+  .chev{position:absolute;z-index:0;width:110px;opacity:.12}
+  .chev-1{right:-10px;top:40px}
+  .chev-2{left:-40px;bottom:30px;width:70px;opacity:.09}
+
+  /* slides */
+  .slides{position:absolute;inset:0;z-index:2}
+  .slide{
+    position:absolute;inset:0;display:grid;place-items:center;
+    opacity:0;transform:translateX(40px) rotate(-4deg);
+    transition:opacity .7s ease,transform .7s ease;
+    pointer-events:none;
+  }
+  .slide.on{opacity:1;transform:none;pointer-events:auto}
+  .slide .float{animation:hover 5s ease-in-out infinite}
+  @keyframes hover{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .s-logo img{
+    width:430px;height:430px;border-radius:50%;object-fit:cover;
+    box-shadow:0 40px 60px rgba(0,0,0,.5),0 0 0 10px rgba(255,255,255,.08);
+  }
+  .s-poster img{
+    width:440px;height:440px;border-radius:36px;object-fit:cover;
+    transform:rotate(-6deg);
+    box-shadow:0 40px 70px rgba(0,0,0,.55);
+    border:6px solid var(--white);
+  }
+  .s-stores .board{
+    width:440px;background:var(--bg-2);border-radius:32px;padding:30px;
+    box-shadow:0 40px 70px rgba(0,0,0,.55);transform:rotate(4deg);
+    border:2px solid rgba(255,255,255,.08);
+  }
+  .board h3{font-family:'Anton',sans-serif;font-weight:400;font-size:34px;text-transform:uppercase;line-height:1}
+  .board h3 span{color:var(--yellow)}
+  .board p{color:var(--muted);font-size:13px;margin:6px 0 18px}
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .chip{
+    background:var(--white);color:#111;border-radius:14px;padding:14px 10px;text-align:center;
+    font-weight:800;font-size:17px;
+  }
+  .chip.ml{background:#FFE600;color:#2D3277}
+  .chip.shp{background:#EE4D2D;color:#fff}
+  .chip.mgl{color:#0086FF}
+  .chip.cb{color:#0033A0}.chip.cb em{color:#E3262E;font-style:normal}
+  .chip.ns{background:#5A2D82;color:#fff}
+
+  /* selo giratório "ATÉ 70% OFF" */
+  .badge{
+    position:absolute;z-index:4;left:-50px;top:0;
+    width:150px;height:150px;display:grid;place-items:center;
+  }
+  .badge .ring{position:absolute;inset:0;animation:spin 14s linear infinite}
+  .badge .ring text{font-family:'Poppins',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:3.2px;fill:var(--yellow);text-transform:uppercase}
+  .badge a{
+    width:62px;height:62px;border-radius:50%;background:var(--yellow);
+    display:grid;place-items:center;transition:transform .2s;
+    box-shadow:0 0 0 0 rgba(255,200,20,.5);animation:ping 2s infinite;
+  }
+  .badge a:hover{transform:scale(1.1)}
+  .badge a svg{width:32px;height:32px;fill:var(--bg)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes ping{70%{box-shadow:0 0 0 18px rgba(255,200,20,0)}100%{box-shadow:0 0 0 0 rgba(255,200,20,0)}}
+
+  /* paginação 01 — 02 03 */
+  .pager{
+    position:absolute;z-index:5;right:0;bottom:-40px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .pager button{
+    background:none;border:0;cursor:pointer;color:rgba(255,255,255,.55);
+    font:600 15px 'Poppins',sans-serif;display:flex;align-items:center;gap:14px;transition:color .2s;
+  }
+  .pager{gap:24px}
+  .pager button.on{color:var(--bg);font-weight:800}
+  .pager button:not(.on){color:rgba(27,27,29,.6)}
+
+  /* ================= LOJAS ================= */
+  .stores{background:var(--yellow);color:var(--bg);padding:22px 0;overflow:hidden;position:relative;z-index:2}
+  .marquee{display:flex;flex-wrap:nowrap;justify-content:center;align-items:center}
+  .marquee span{flex:none;font-family:'Anton',sans-serif;font-size:30px;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center}
+  .marquee span::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--bg);margin:0 34px}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ================= SEÇÕES ================= */
+  .sec{padding:110px 0;position:relative}
+  .head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:56px;flex-wrap:wrap}
+  .head .script{font-size:clamp(26px,2.6vw,38px)}
+  .head h2{
+    font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;line-height:.95;
+    font-size:clamp(44px,5.6vw,84px);
+  }
+  .head h2 span{color:var(--yellow)}
+  .head p{max-width:380px;color:var(--muted);font-size:15px;line-height:1.6}
+
+  /* vantagens */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .card{
+    background:var(--bg-2);border-radius:26px;padding:34px 26px;position:relative;overflow:hidden;
+    border:1px solid rgba(255,255,255,.06);transition:transform .3s,background .3s;
+  }
+  .card::before{
+    content:"";position:absolute;width:160px;height:160px;right:-60px;top:-60px;border-radius:50%;
+    background:var(--yellow);opacity:.08;transition:opacity .3s,transform .4s;
+  }
+  .card:hover{transform:translateY(-8px);background:var(--bg-3)}
+  .card:hover::before{opacity:.18;transform:scale(1.3)}
+  .card .num{font-family:'Anton',sans-serif;font-size:16px;color:var(--muted);letter-spacing:1px}
+  .card .ic{
+    width:64px;height:64px;border-radius:18px;background:var(--yellow);
+    display:grid;place-items:center;margin:20px 0 22px;
+  }
+  .card .ic svg{width:32px;height:32px;fill:var(--bg)}
+  .card h3{font-size:20px;font-weight:700;line-height:1.2}
+  .card p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.55}
+
+  /* como funciona */
+  .how{background:var(--bg-2);overflow:hidden}
+  .how-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center}
+  .poster-wrap{position:relative;max-width:500px;margin:0 auto}
+  .poster-wrap .blob{width:440px;height:440px;right:-60px;bottom:-60px}
+  .poster-wrap img{position:relative;z-index:1;border-radius:32px;box-shadow:0 40px 70px rgba(0,0,0,.5);transform:rotate(-4deg)}
+  .steps{display:grid;gap:16px;margin-top:10px}
+  .step{
+    display:flex;gap:22px;align-items:center;padding:22px 24px;border-radius:22px;
+    background:var(--bg);border:1px solid rgba(255,255,255,.06);transition:border-color .3s;
+  }
+  .step:hover{border-color:var(--yellow)}
+  .step b{font-family:'Anton',sans-serif;font-weight:400;font-size:44px;color:var(--yellow);line-height:1;min-width:54px}
+  .step h3{font-size:18px;font-weight:700}
+  .step p{font-size:14px;color:var(--muted);margin-top:2px}
+
+  /* CTA final */
+  .final{text-align:center;overflow:hidden}
+  .final .box{
+    position:relative;background:var(--yellow);color:var(--bg);border-radius:40px;padding:80px 30px;overflow:hidden;
+  }
+  .final .box .chev{opacity:.12;width:120px}
+  .final .script{color:var(--bg)}
+  .final h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(46px,7vw,110px);line-height:.9}
+  .final p{max-width:540px;margin:18px auto 0;font-weight:500;font-size:16px}
+  .final .btn{background:var(--bg);color:var(--yellow);margin-top:32px;box-shadow:0 14px 30px rgba(0,0,0,.25)}
+  .final .btn:hover{background:#000}
+
+  footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:34px 0;color:var(--muted);font-size:13px;
+  }
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer small{display:block;font-size:11.5px;opacity:.7;margin-top:4px}
+
+  .float-wa{
+    position:fixed;right:22px;bottom:22px;z-index:50;width:60px;height:60px;border-radius:50%;
+    background:var(--green);display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.4);
+    animation:hover 2.6s ease-in-out infinite;
+  }
+  .float-wa svg{width:32px;height:32px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+  .reveal.on{opacity:1;transform:none}
+
+  /* ================= RESPONSIVO ================= */
+  @media (max-width:1100px){
+    .menu{gap:22px}
+    .nav-ig{display:none}
+    .s-logo img,.s-poster img{width:360px;height:360px}
+    .s-stores .board{width:380px}
+    .cards{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:900px){
+    .wrap{padding:0 22px}
+    .menu{display:none}
+    .menu.open{
+      display:flex;flex-direction:column;gap:6px;position:absolute;top:88px;left:0;right:0;
+      background:var(--bg-2);padding:18px 22px;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,.4);
+    }
+    .menu-toggle{
+      display:grid;place-items:center;width:46px;height:46px;border-radius:12px;
+      background:var(--bg-3);border:0;cursor:pointer;
+    }
+    .menu-toggle span,.menu-toggle span::before,.menu-toggle span::after{
+      content:"";display:block;width:20px;height:2px;border-radius:2px;background:#fff;position:relative;
+    }
+    .menu-toggle span::before{position:absolute;top:-7px}
+    .menu-toggle span::after{position:absolute;top:7px}
+    .hero{min-height:auto}
+    .hero-grid{grid-template-columns:1fr;text-align:center;padding-top:10px;padding-bottom:90px}
+    .actions{justify-content:center}
+    .desc{margin-left:auto;margin-right:auto}
+    .visual{height:470px;max-width:520px;width:100%;margin:0 auto}
+    .blob{width:460px;height:460px;right:-120px;bottom:-130px}
+    .badge{left:0;top:0;width:120px;height:120px}
+    .badge a{width:50px;height:50px}
+    .pager{right:50%;transform:translateX(50%);bottom:-50px}
+    .pager button:not(.on){color:rgba(255,255,255,.55)}
+    .pager button.on{color:var(--yellow)}
+    .how-grid{grid-template-columns:1fr;gap:50px}
+    .head{justify-content:center;text-align:center}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    .btn-sm{display:none}
+    .brand{font-size:17px}
+    .brand img{width:40px;height:40px}
+    h1{font-size:clamp(56px,17vw,90px)}
+    .actions{flex-direction:column;gap:16px}
+    .visual{height:380px}
+    .s-logo img,.s-poster img{width:270px;height:270px}
+    .s-poster img{border-radius:26px;border-width:4px}
+    .s-stores .board{width:290px;padding:22px}
+    .board h3{font-size:26px}
+    .chip{font-size:14px;padding:11px 6px}
+    .blob{width:360px;height:360px;right:-110px;bottom:-110px}
+    .blob-2{display:none}
+    .badge{width:104px;height:104px}
+    .badge .ring text{font-size:15px}
+    .cards{grid-template-columns:1fr}
+    .sec{padding:76px 0}
+    .marquee span{font-size:20px}
+    .marquee span::before{width:7px;height:7px;margin:0 14px}
+    .final .box{padding:60px 20px;border-radius:28px}
+    .poster-wrap .blob{width:300px;height:300px;right:-30px;bottom:-40px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="wa" viewBox="0 0 32 32">
+      <path d="M16.04 3C8.86 3 3.030 8.82 3.03 16c0 2.3.6 4.53 1.74 6.5L3 29l6.68-1.75A12.95 12.95 0 0 0 16.04 29C23.2 29 29 23.18 29 16S23.2 3 16.04 3zm0 23.66c-2.03 0-4.02-.55-5.75-1.58l-.41-.24-3.96 1.04 1.06-3.860-.27-.4A10.6 10.6 0 0 1 5.4 16c0-5.87 4.77-10.64 10.65-10.64 5.86 0 10.63 4.77 10.63 10.64 0 5.88-4.770 10.66-10.640 10.66zm5.84-7.97c-.32-.16-1.89-.93-2.18-1.04-.3-.1-.5-.16-.72.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.3.32-1.12 1.09-1.12 2.66 0 1.57 1.14 3.09 1.3 3.3.16.21 2.25 3.43 5.44 4.81.76.33 1.35.52 1.82.67.76.24 1.46.21 2 .13.61-.09 1.89-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37z"/>
+    </symbol>
+    <symbol id="chevrons" viewBox="0 0 100 260">
+      <g fill="none" stroke="#fff" stroke-width="14" stroke-linejoin="miter">
+        <path d="M10 60 50 20 90 60"/><path d="M10 110 50 70 90 110"/><path d="M10 160 50 120 90 160"/>
+        <path d="M10 210 50 170 90 210"/><path d="M10 260 50 220 90 260"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="inicio">
+  <header class="wrap">
+    <nav class="nav">
+      <a href="#inicio" class="brand" aria-label="Central de Achados">
+        <img src="img/logo.jpeg" alt="">
+        <span>Central<small>de Achados</small></span>
+      </a>
+      <ul class="menu">
+        <li><a href="#inicio" class="active">Início</a></li>
+        <li><a href="#lojas">Lojas</a></li>
+        <li><a href="#vantagens">Vantagens</a></li>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#participar">Participar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="wrap hero-grid">
+    <div class="copy">
+      <span class="script">Grupo VIP de</span>
+      <h1>Achadi<span>nhos</span></h1>
+      <p class="subtitle">As melhores ofertas das maiores lojas</p>
+      <div class="actions">
+        <a class="btn js-whats" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32"><use href="#wa"/></svg> Entrar no grupo
+        </a>
+      </div>
+      <p class="desc">Promoções da Amazon, Mercado Livre, Shopee, Magalu, Casas Bahia e Netshoes, garimpadas todos os dias e enviadas direto no seu WhatsApp. É grátis!</p>
+    </div>
+
+    <div class="visual">
+      <div class="blob"></div>
+
+      <svg class="chev chev-1" viewBox="0 0 100 260"><use href="#chevrons"/></svg>
+      <svg class="chev chev-2" viewBox="0 0 100 260"><use href="#chevrons"/></svg>
+
+      <div class="slides">
+        <div class="slide s-logo on"><div class="float"><img src="img/logo.jpeg" alt="Logo Central de Achados"></div></div>
+        <div class="slide s-poster"><div class="float"><img src="img/convite.jpeg" alt="Convite do grupo com produtos em oferta"></div></div>
+        <div class="slide s-stores">
+          <div class="float">
+            <div class="board">
+              <h3>As maiores <span>lojas</span></h3>
+              <p>Ofertas selecionadas de onde você já confia:</p>
+              <div class="chips">
+                <div class="chip">amazon</div>
+                <div class="chip ml">mercado livre</div>
+                <div class="chip shp">Shopee</div>
+                <div class="chip mgl">Magalu</div>
+                <div class="chip cb">CASAS <em>BAHIA</em></div>
+                <div class="chip ns">netshoes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pager" role="tablist" aria-label="Destaques">
+        <button class="on" data-i="0" aria-label="Destaque 1">01</button>
+        <button data-i="1" aria-label="Destaque 2">02</button>
+        <button data-i="2" aria-label="Destaque 3">03</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- ================= LOJAS ================= -->
+<div class="stores" id="lojas" aria-label="Lojas">
+  <div class="marquee">
+    <span aria-hidden="true">Magalu</span><span aria-hidden="true">Casas Bahia</span><span aria-hidden="true">Netshoes</span>
+    <span>Amazon</span><span>Mercado Livre</span><span>Shopee</span><span>Magalu</span><span>Casas Bahia</span><span>Netshoes</span>
+    <span aria-hidden="true">Amazon</span><span aria-hidden="true">Mercado Livre</span><span aria-hidden="true">Shopee</span><span aria-hidden="true">Magalu</span><span aria-hidden="true">Casas Bahia</span><span aria-hidden="true">Netshoes</span>
+    <span aria-hidden="true">Amazon</span><span aria-hidden="true">Mercado Livre</span><span aria-hidden="true">Shopee</span>
+  </div>
+</div>
+
+<!-- ================= VANTAGENS ================= -->
+<section class="sec" id="vantagens">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <span class="script">Por que entrar?</span>
+        <h2>Vantagens <span>exclusivas</span></h2>
+      </div>
+      <p>Tudo o que você precisa para comprar mais pagando menos, sem perder tempo procurando promoção.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <span class="num">01</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7A1.5 1.5 0 1 1 7 5.5 1.5 1.5 0 0 1 5.5 7z"/></svg></div>
+        <h3>Preços Imperdíveis</h3>
+        <p>Cupons e descontos garimpados a dedo para você pagar menos.</p>
+      </div>
+      <div class="card reveal">
+        <span class="num">02</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
+        <h3>Compra Segura</h3>
+        <p>Só links oficiais das lojas mais confiáveis do país.</p>
+      </div>
+      <div class="card reveal">
+        <span class="num">03</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg></div>
+        <h3>Entrega para todo o Brasil</h3>
+        <p>Ofertas com envio para qualquer cidade, direto na sua casa.</p>
+      </div>
+      <div class="card reveal">
+        <span class="num">04</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg></div>
+        <h3>Ofertas Todos os Dias</h3>
+        <p>Novidades postadas diariamente: eletrônicos, casa, moda e mais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<section class="sec how" id="como-funciona">
+  <div class="wrap how-grid">
+    <div class="poster-wrap reveal">
+      <div class="blob"></div>
+      <img src="img/convite.jpeg" alt="Convite do grupo Central de Achados">
+    </div>
+    <div>
+      <div class="head reveal" style="margin-bottom:30px">
+        <div>
+          <span class="script">Simples assim</span>
+          <h2>Como <span>funciona</span></h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><b>01</b><div><h3>Clique no botão</h3><p>Toque em “Entrar no grupo” e abra o WhatsApp.</p></div></div>
+        <div class="step reveal"><b>02</b><div><h3>Entre no grupo</h3><p>Confirme sua entrada no grupo Central de Achados.</p></div></div>
+        <div class="step reveal"><b>03</b><div><h3>Aproveite as ofertas</h3><p>Receba os achadinhos e economize em cada compra.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="sec final" id="participar">
+  <div class="wrap">
+    <div class="box reveal">
+      <svg class="chev" viewBox="0 0 100 260" style="position:absolute;left:30px;top:30px"><use href="#chevrons"/></svg>
+      <svg class="chev" viewBox="0 0 100 260" style="position:absolute;right:30px;bottom:-40px;transform:rotate(180deg)"><use href="#chevrons"/></svg>
+      <span class="script">Não fique de fora</span>
+      <h2>Faça parte agora!</h2>
+      <p>Entre no grupo da Central de Achados e comece a economizar hoje mesmo. É 100% gratuito.</p>
+      <a class="btn js-whats" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32"><use href="#wa"/></svg> Entrar no grupo
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#inicio" class="brand"><img src="img/logo.jpeg" alt=""><span>Central<small>de Achados</small></span></a>
+    <div>© <span id="ano"></span> Central de Achados · Todos os direitos reservados.
+      <small>Preços e disponibilidade são definidos pelas lojas e podem mudar sem aviso.</small></div>
+  </div>
+</footer>
+
+<a class="float-wa js-whats" href="#" target="_blank" rel="noopener" aria-label="Entrar no grupo do WhatsApp">
+  <svg viewBox="0 0 32 32"><use href="#wa"/></svg>
+</a>
+
+<script>
+  // >>>>>> COLE AQUI O LINK DO GRUPO DO WHATSAPP <<<<<<
+  const WHATSAPP_LINK = "https://chat.whatsapp.com/G9qhAvIkoQrKGVJ8O54RMd";
+
+  document.querySelectorAll('.js-whats').forEach(a => a.href = WHATSAPP_LINK);
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // menu mobile
+  document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () =>
+    document.querySelector('.menu').classList.remove('open')));
+
+  // slider 01 / 02 / 03
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.pager button');
+  let cur = 0, timer;
+  function go(i){
+    slides[cur].classList.remove('on'); dots[cur].classList.remove('on');
+    cur = i;
+    slides[cur].classList.add('on'); dots[cur].classList.add('on');
+  }
+  function auto(){ clearInterval(timer); timer = setInterval(() => go((cur + 1) % slides.length), 4500); }
+  dots.forEach(d => d.addEventListener('click', () => { go(+d.dataset.i); auto(); }));
+  auto();
+
+  // animação ao rolar
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
