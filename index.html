@@ -3,405 +3,454 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Central de Achados | Ofertas de Calçados e Sapatos no WhatsApp</title>
-<meta name="description" content="Entre no grupo de WhatsApp da Central de Achados e receba todos os dias as melhores ofertas de tênis, sapatos, sandálias e botas da Netshoes, Centauro, Dafiti, Amazon, Mercado Livre e Shopee.">
-<link rel="icon" href="img/logo.jpeg">
+<title>Central de Achados | Ofertas Fitness no WhatsApp</title>
+<meta name="description" content="Entre no grupo de WhatsApp da Central de Achados e receba todos os dias as melhores ofertas fitness, como roupas de treino, tênis, acessórios, equipamentos e suplementos, da Netshoes, Centauro, Dafiti, Amazon, Mercado Livre e Shopee.">
+<meta name="theme-color" content="#f7f7f2">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Central de Achados | Ofertas Fitness no WhatsApp">
+<meta property="og:description" content="Roupas de treino, tênis, acessórios e suplementos em oferta, todos os dias no seu WhatsApp.">
+<meta property="og:image" content="img/casal.jpg">
+<link rel="icon" href="img/logo-96.jpg">
+<link rel="apple-touch-icon" href="img/logo-192.jpg">
+<link rel="preload" as="image" href="img/casal.jpg" imagesrcset="img/casal-640.jpg 640w, img/casal.jpg 1200w" imagesizes="(min-width:960px) 50vw, 100vw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
-  /* =========================================================
-     LINK DO GRUPO: altere a constante WHATSAPP_LINK no final
-     do arquivo. Todos os botões usam esse link.
-     ========================================================= */
+  /* LINK DO GRUPO: altere a constante WHATSAPP_LINK no final do arquivo. */
   :root{
-    --bg:#0B34C9;         /* azul vivo */
-    --bg-2:#0A2DB0;
-    --bg-3:#1D47E0;
-    --bar:#FFE000;        /* amarelo vivo das barras/botões */
-    --bar-hover:#FFF04D;
-    --ink:#061C7A;        /* texto sobre as barras */
-    --dim:#8FB4FF;        /* azul claro dos títulos */
-    --white:#FFFFFF;
-    --muted:#DCE6FF;
-    --line:rgba(255,255,255,.16);
-    --grad:linear-gradient(135deg,#1D47E0 0%,#0B34C9 45%,#061C7A 100%);
-    --grad-2:linear-gradient(180deg,#0A2DB0 0%,#071F86 100%);
-    --grad-3:linear-gradient(135deg,#2A5BFF 0%,#1D47E0 50%,#0B34C9 100%);
+    --paper:#f7f7f2; --paper-2:#efefe7; --card:#fff;
+    --ink:#22251f; --ink-2:#3b3f36; --muted:#5f6259; --line:#dfe1d8;
+    --lime:#d4fa45; --lime-ink:#5b6e12;
+    --lavender:#e4ddf1; --lavender-ink:#5d4a78;
+    --sage:#e3e9d6; --sage-ink:#4b5a35;
+    --stone:#ebe7df; --stone-ink:#5a4f3c;
+    --radius:18px;
+    --shadow:0 1px 2px #22251f0f, 0 8px 24px -12px #22251f2e;
+    --display:"Manrope", system-ui, sans-serif;
+    --body:"DM Sans", system-ui, sans-serif;
+    --wrap:1240px; --gutter:16px; --header-h:64px;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Raleway',system-ui,sans-serif;
-    background:var(--bg);
-    color:var(--white);
-    overflow-x:hidden;
+  @media (min-width:640px){:root{--gutter:28px}}
+  @media (min-width:960px){:root{--gutter:40px;--header-h:76px}}
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px);-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.65 var(--body);overflow-x:clip}
+  img,svg{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-underline-offset:3px}
+  button{font:inherit;color:inherit;cursor:pointer}
+  :focus-visible{outline:3px solid var(--lime-ink);outline-offset:3px;border-radius:4px}
+  h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.12;letter-spacing:-.025em;margin:0 0 .5em;text-wrap:balance}
+  h1{font-size:clamp(2.1rem,1.4rem + 3.6vw,4.1rem);letter-spacing:-.04em}
+  h2{font-size:clamp(1.6rem,1.2rem + 1.8vw,2.6rem)}
+  h3{font-size:clamp(1.12rem,1.05rem + .4vw,1.3rem);letter-spacing:-.015em}
+  p{margin:0 0 1em;text-wrap:pretty}
+  .wrap{width:min(100% - 2 * var(--gutter), var(--wrap));margin-inline:auto}
+  .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px}
+  .skip:focus{top:12px}
+
+  /* ================= HEADER ================= */
+  .site-header{position:sticky;top:0;z-index:50;background:#f7f7f2f2;border-bottom:1px solid transparent;transition:border-color .2s}
+  .site-header[data-scrolled]{border-bottom-color:var(--line)}
+  .header-inner{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;line-height:1;flex-shrink:0}
+  .logo img{width:40px;height:40px;border-radius:12px;object-fit:cover}
+  .logo-text{display:flex;flex-direction:column;gap:3px}
+  .logo-text b{font:800 1.18rem/1 var(--display);letter-spacing:-.04em}
+  .logo-text b span{color:var(--lime-ink)}
+  .logo-text small{font-size:.72rem;color:var(--muted)}
+  .menu-toggle{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 14px 0 16px;border:1px solid var(--line);background:var(--card);border-radius:999px;font-size:.9rem;font-weight:600}
+  .menu-icon{position:relative;width:18px;height:12px}
+  .menu-icon::before,.menu-icon::after,.menu-icon span{content:"";position:absolute;left:0;width:100%;height:2px;background:currentColor;border-radius:2px;transition:transform .25s,opacity .2s,top .25s}
+  .menu-icon::before{top:0}.menu-icon span{top:5px}.menu-icon::after{top:10px}
+  .menu-toggle[aria-expanded=true] .menu-icon::before{top:5px;transform:rotate(45deg)}
+  .menu-toggle[aria-expanded=true] .menu-icon span{opacity:0}
+  .menu-toggle[aria-expanded=true] .menu-icon::after{top:5px;transform:rotate(-45deg)}
+  .site-nav{position:fixed;inset:var(--header-h) 0 0 0;z-index:49;background:var(--paper);padding:20px var(--gutter) 32px;display:flex;flex-direction:column;gap:4px;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility 0s .2s;overflow-y:auto}
+  .site-nav[data-open]{visibility:visible;opacity:1;transform:none;transition:opacity .2s,transform .2s}
+  .site-nav a{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 4px;border-bottom:1px solid var(--line);font:800 1.45rem/1.1 var(--display);letter-spacing:-.03em;text-decoration:none}
+  .site-nav a::after{content:"↗";font:400 1.1rem var(--body);color:var(--muted)}
+  body[data-menu-open]{overflow:hidden}
+  @media (min-width:960px){
+    .logo img{width:46px;height:46px;border-radius:14px}
+    .logo-text b{font-size:1.38rem}
+    .menu-toggle{display:none}
+    .site-nav{position:static;flex-direction:row;align-items:center;gap:4px;padding:0;background:none;visibility:visible;opacity:1;transform:none;overflow:visible}
+    .site-nav a{min-height:40px;padding:0 14px;border:0;border-radius:999px;font:600 .93rem/1 var(--body);letter-spacing:0}
+    .site-nav a::after{content:none}
+    .site-nav a:hover{background:var(--paper-2)}
   }
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+
+  /* ================= BOTÕES E UTILITÁRIOS ================= */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font-size:.95rem;font-weight:700;text-decoration:none;transition:transform .15s,background .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn svg{width:20px;height:20px;fill:currentColor}
+  .btn-lime{background:var(--lime);color:var(--ink)}
+  .btn-lime:hover{background:#c6ef2c}
+  .btn-xl{min-height:68px;min-width:360px;padding:0 64px;font-size:1.2rem;gap:12px;box-shadow:0 0 0 1px #22251f14, 0 10px 24px -10px #5b6e1299}
+  .btn-xl svg{width:26px;height:26px}
+  @media (max-width:640px){.btn-xl{width:100%;min-width:0;min-height:64px;padding:0 24px;font-size:1.12rem}}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+  .link-arrow{display:inline-flex;align-items:center;gap:6px;font-weight:700;text-decoration:none}
+  .link-arrow:hover{text-decoration:underline}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime-ink);box-shadow:0 0 0 4px var(--lime)}
+  .underline-lime{background:linear-gradient(transparent 62%,var(--lime) 62%,var(--lime) 92%,transparent 92%);padding-inline:2px}
+  .section{padding-block:clamp(48px,7vw,96px)}
+  .section-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 32px;margin-bottom:clamp(24px,4vw,40px)}
+  .section-head>div{max-width:680px}
+  .section-head p{margin:0;color:var(--muted)}
 
   /* ================= HERO ================= */
-  .hero-frame{background:var(--grad)}
-  .hero{
-    position:relative;min-height:100vh;background:var(--grad);
-    padding:56px 0 50px;overflow:hidden;
+  .hero{display:grid;align-items:center;gap:28px;padding-block:20px 40px}
+  .hero h1{margin:6px 0 16px}
+  .hero h1 em{font-style:normal;color:#7c8566}
+  .hero-lead{max-width:36ch;font-size:1.08rem;color:var(--ink-2);margin:0}
+  .hero-art{position:relative;aspect-ratio:5/4;border-radius:24px;overflow:hidden;background:#ecebe4}
+  .hero-art img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+  .hero-note{position:absolute;left:12px;bottom:12px;max-width:230px;padding:10px 14px;border-radius:14px;background:#ffffffeb;font-size:.8rem;line-height:1.35}
+  .hero-note b{display:block;font:800 .95rem var(--display)}
+  .hero-tag{position:absolute;top:12px;right:12px;padding:8px 14px;border-radius:999px;background:var(--lime);font:800 .85rem var(--display)}
+  @media (max-width:420px){.hero-note{display:none}}
+  @media (min-width:960px){
+    .hero{grid-template-columns:1.05fr 1fr;gap:48px;min-height:min(78vh,720px);padding-block:32px 72px}
+    .hero-lead{font-size:1.18rem}
+    .hero-art{aspect-ratio:1;max-height:560px;border-radius:28px}
+    .hero-note{left:14px;bottom:14px}
+    .hero-tag{top:14px;right:14px}
   }
 
-  /* nav dividido: barra | marca | barra */
-  .nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:60px;padding:0 64px}
-  .bar{display:flex;justify-content:space-around;background:var(--bar);color:var(--ink);list-style:none}
-  .bar a{display:block;padding:14px 18px;font-weight:700;font-size:17px;transition:color .2s}
-  .bar a{text-underline-offset:6px;text-decoration-thickness:2px}
-  .bar a:hover,.bar a.active{color:var(--ink);text-decoration-line:underline}
-  .brand{display:flex;align-items:center;gap:14px}
-  .brand img{width:46px;height:46px;border-radius:50%;object-fit:cover}
-  .brand b{font-style:italic;font-weight:800;font-size:19px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
-  .burger{display:flex;flex-direction:column;gap:5px;background:none;border:0;padding:4px;cursor:pointer}
-  .burger span{display:block;height:5px;background:var(--white);border-radius:3px}
-  .burger span:nth-child(1){width:34px}.burger span:nth-child(2){width:46px}.burger span:nth-child(3){width:46px}
-  .mobile-menu{display:none}
+  /* ================= FAIXA ROLANTE ================= */
+  .ticker{background:var(--ink);color:#fff;padding:14px 0;overflow:hidden;white-space:nowrap;font:800 .95rem/1 var(--display);letter-spacing:.06em}
+  .ticker div{display:inline-block;animation:ticker 38s linear infinite;will-change:transform}
+  .ticker span{margin:0 18px;color:var(--lime)}
+  @keyframes ticker{to{transform:translateX(-50%)}}
 
-  .hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr);align-items:center;margin-top:110px;gap:40px}
-  .copy{padding-left:120px}
-  h1{
-    font-weight:800;text-transform:uppercase;line-height:1;letter-spacing:-.01em;
-    font-size:clamp(40px,4.6vw,72px);color:var(--dim);
-  }
-  h1 span{display:block;white-space:nowrap}
-  h1 strong{display:block;color:var(--white);font-weight:900;font-size:1.25em;line-height:.95;white-space:nowrap}
-  .rule{width:300px;max-width:100%;height:1px;background:var(--muted);margin:30px 0 40px}
-  .desc{font-style:italic;font-weight:400;font-size:17px;line-height:1.65;max-width:300px;color:var(--white)}
-  .socials{display:flex;gap:40px;margin-top:66px}
-  .socials a{width:26px;height:26px;opacity:.9;transition:opacity .2s}
-  .socials a:hover{opacity:1}
-  .socials svg{width:100%;height:100%;fill:var(--white)}
-
-  /* painel inclinado */
-  .panel{
-    position:relative;height:460px;overflow:hidden;
-    clip-path:polygon(12% 0,100% 0,100% 100%,0 100%);
-    background:#9A9A9A;
-  }
-  /* foto em preto e branco ao fundo, como no modelo */
-  .panel .photo{
-    position:absolute;top:0;left:0;width:100%;height:100%;
-    object-fit:cover;object-position:50% 20%;
-    filter:grayscale(1) contrast(1.05) brightness(.95);
-  }
-  .panel::after{ /* leve escurecida na direita para destacar as palavras */
-    content:"";position:absolute;inset:0;z-index:0;
-    background:linear-gradient(90deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.18) 100%);
-  }
-  .panel .words{
-    position:absolute;right:4%;top:50%;transform:translateY(-50%);z-index:1;
-    text-align:right;font-style:italic;font-weight:900;text-transform:uppercase;
-    font-size:clamp(48px,6vw,104px);line-height:.98;color:rgba(255,224,0,.85);
-  }
-  .panel .words span{display:block}
-  .panel .words span:nth-child(2){color:rgba(11,52,201,.85)}
-
-  .hero-cta{display:flex;margin-top:44px;padding-left:calc(45% + 4px)}
-
-  /* botão retangular cinza */
-  .btn{
-    display:inline-flex;align-items:center;gap:12px;background:var(--bar);color:var(--ink);
-    padding:14px 36px;font-weight:800;font-size:19px;text-transform:uppercase;letter-spacing:.01em;
-    transition:background .2s,color .2s;
-  }
-  .btn svg{width:22px;height:22px;fill:currentColor}
-  .btn:hover{background:var(--bar-hover);color:var(--ink)}
-  /* botão principal "Entrar no grupo" maior */
-  .hero-cta .btn{padding:24px 64px;font-size:24px;gap:16px;min-width:360px;justify-content:center}
-  .hero-cta .btn svg{width:30px;height:30px}
-
-  /* ================= FAIXA DE LOJAS ================= */
-  .stores{background:var(--bar);color:var(--ink);padding:18px 0;overflow:hidden}
-  .marquee{display:flex;flex-wrap:nowrap;justify-content:center;align-items:center}
-  .marquee span{flex:none;font-style:italic;font-weight:900;font-size:24px;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center}
-  .marquee span::before{content:"";width:28px;height:2px;background:var(--ink);margin:0 28px}
-
-  /* ================= SEÇÕES ================= */
-  .sec{padding:120px 0;position:relative}
-  .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
-  .eyebrow{display:block;font-style:italic;font-size:17px;font-weight:400;color:var(--muted);margin-bottom:10px}
-  h2{font-weight:800;text-transform:uppercase;font-size:clamp(36px,4.4vw,62px);line-height:1;color:var(--dim)}
-  h2 span{color:var(--white);font-weight:900}
-  .head .rule{margin:24px 0 0;width:220px}
-  .head p{max-width:400px;color:var(--muted);line-height:1.65;font-style:italic}
-
-  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border:2px solid var(--line)}
-  .card{position:relative;padding:40px 30px;background:var(--grad);transition:background .3s}
-  .card:hover{background:var(--grad-3)}
-  .card .num{position:absolute;right:24px;top:18px;font-style:italic;font-weight:900;font-size:50px;color:var(--bg-3)}
-  .card:hover .num{color:#3A62F0}
-  .card .ic{width:54px;height:54px;background:var(--bar);display:grid;place-items:center;margin-bottom:24px}
-  .card .ic svg{width:26px;height:26px;fill:var(--ink)}
-  .card h3{font-size:18px;font-weight:800;text-transform:uppercase;margin-bottom:10px}
-  .card p{font-size:15px;color:var(--muted);line-height:1.6;font-style:italic}
-
-  .shops{background:var(--grad-2)}
-  .chips{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-  .chip{
-    background:var(--bar);color:var(--ink);padding:26px 10px;text-align:center;
-    font-weight:900;font-style:italic;font-size:18px;text-transform:uppercase;transition:background .2s,color .2s;
-  }
-  .chip:hover{background:var(--white);color:var(--ink)}
-
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .step{padding:34px 30px;border-left:2px solid var(--bar);background:var(--bg-2)}
-  .step b{display:block;font-style:italic;font-weight:900;font-size:58px;color:var(--dim);line-height:1;margin-bottom:14px}
-  .step h3{font-size:18px;font-weight:800;text-transform:uppercase}
-  .step p{font-size:15px;color:var(--muted);margin-top:8px;line-height:1.6;font-style:italic}
-
-  /* CTA final: moldura magenta como o topo */
-  .final{background:var(--grad-2);padding:110px 0}
-  .final .box{
-    position:relative;overflow:hidden;text-align:center;padding:90px 30px;
-    background:var(--grad);border:2px solid var(--line);
-  }
-  .final h2{margin:4px 0 0}
-  .final .rule{margin:26px auto 30px}
-  .final p{max-width:520px;margin:0 auto 38px;color:var(--white);line-height:1.65;font-style:italic;font-size:17px}
-
-  footer{padding:34px 0;color:var(--muted);font-size:14px}
-  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-  footer small{display:block;margin-top:4px;font-size:12px;opacity:.75}
-
-  .float-wa{
-    position:fixed;right:22px;bottom:22px;z-index:50;width:60px;height:60px;
-    background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.4);
-    transition:transform .25s;
-  }
-  .float-wa:hover{transform:scale(1.08)}
-  .float-wa svg{width:32px;height:32px;fill:#fff}
-
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
-  .reveal.on{opacity:1;transform:none}
-
-  /* ================= RESPONSIVO ================= */
-  @media (max-width:1200px){
-    .nav{gap:30px;padding:0 40px}
-    .copy{padding-left:60px}
-    .bar a{font-size:15px;padding:13px 10px}
-    .cards{grid-template-columns:repeat(2,1fr)}
-    .chips{grid-template-columns:repeat(3,1fr)}
-  }
-  @media (max-width:900px){
-
-    .hero{padding:30px 0 40px}
-    .nav{grid-template-columns:1fr auto;padding:0 24px}
-    .nav .bar{display:none}
-    .brand{order:-1}
-    .mobile-menu{
-      position:absolute;top:96px;left:24px;right:24px;z-index:10;background:var(--bar);
-      flex-direction:column;list-style:none;
-    }
-    .mobile-menu.open{display:flex}
-    .mobile-menu a{display:block;padding:15px 18px;color:var(--ink);font-weight:700;border-bottom:1px solid rgba(10,26,85,.12)}
-    .hero-grid{grid-template-columns:minmax(0,1fr);margin-top:50px;gap:40px}
-    .copy{padding:0 24px}
-    .socials{margin-top:36px}
-    .panel{height:340px;margin-left:24px}
-    .hero-cta{padding:0 24px}
-    .steps{grid-template-columns:1fr}
-  }
+  /* ================= CARDS DE CATEGORIA ================= */
+  .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:16px}
+  .card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .card-media{aspect-ratio:4/3;background:#fff;overflow:hidden}
+  .card-media img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .4s}
+  .card:hover .card-media img{transform:scale(1.05)}
+  .card-body{display:flex;flex-direction:column;flex:1;padding:18px 18px 20px}
+  .card-body p{color:var(--muted);font-size:.93rem;margin-bottom:16px}
+  .chip{align-self:flex-start;display:inline-flex;align-items:center;min-height:28px;padding:0 10px;margin-bottom:12px;border-radius:999px;font-size:.78rem;font-weight:600;white-space:nowrap}
+  .chip-lime{background:#eef8c9;color:var(--lime-ink)}
+  .chip-lavender{background:var(--lavender);color:var(--lavender-ink)}
+  .chip-sage{background:var(--sage);color:var(--sage-ink)}
+  .chip-stone{background:var(--stone);color:var(--stone-ink)}
+  .card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:.88rem;font-weight:700}
+  .card-meta small{color:var(--muted);font-weight:500}
   @media (max-width:560px){
-
-    .wrap{padding:0 16px}
-    .nav{padding:0 16px}
-    .brand b{font-size:15px}
-    .brand img{width:38px;height:38px}
-    .copy{padding:0 16px}
-    h1{font-size:clamp(34px,10vw,52px)}
-    .panel{height:250px;margin-left:16px}
-    .panel .words{font-size:46px}
-    .hero-cta{padding:0 16px}
-    .btn{font-size:16px;padding:14px 22px}
-    .hero-cta .btn{width:100%;min-width:0;font-size:19px;padding:20px 24px}
-    .hero-cta .btn svg{width:26px;height:26px}
-    .cards{grid-template-columns:1fr}
-    .chips{grid-template-columns:1fr 1fr}
-    .sec{padding:76px 0}
-    .marquee span{font-size:17px}
-    .marquee span::before{width:16px;margin:0 14px}
-    .final{padding:70px 0}
-    .final .box{padding:60px 20px}
+    .grid-cards{grid-template-columns:1fr 1fr;gap:12px}
+    .card-body{padding:12px 12px 14px}
+    .card-body p,.card-meta{display:none}
+    .chip{margin-bottom:8px;font-size:.72rem}
+    .card h3{margin:0;font-size:1rem}
   }
+
+  /* ================= LOJAS ================= */
+  .band-lavender{background:var(--lavender)}
+  .scroll-hint{display:none;margin:-12px 0 12px;font-size:.85rem;color:var(--lavender-ink)}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:16px}
+  .tile{display:flex;flex-direction:column;padding:24px;border-radius:var(--radius);background:var(--card);text-decoration:none;transition:transform .2s,box-shadow .2s}
+  .tile:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .tile-lime{background:var(--lime)}
+  .tile h3{font-size:1.5rem;margin-bottom:6px}
+  .tile p{color:var(--ink-2);font-size:.93rem;margin-bottom:18px}
+  .tile .link-arrow{margin-top:auto}
+  @media (max-width:640px){
+    .scroll-hint{display:block}
+    .tiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1 * var(--gutter));padding:4px var(--gutter) 12px;scroll-padding-inline:var(--gutter);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .tiles::-webkit-scrollbar{display:none}
+    .tile{flex:0 0 78%;scroll-snap-align:start}
+  }
+
+  /* ================= PASSOS ================= */
+  .steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:16px;margin:0;padding:0;list-style:none;counter-reset:passo}
+  .steps li{padding:26px 24px 24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);counter-increment:passo}
+  .steps li::before{content:counter(passo,decimal-leading-zero);display:inline-grid;place-items:center;width:44px;height:44px;margin-bottom:16px;border-radius:12px;background:var(--lime);font:800 1rem var(--display)}
+  .steps p{margin:0;color:var(--muted);font-size:.95rem}
+
+  /* ================= FAQ ================= */
+  #duvidas{padding-top:0}
+  .faq-grid{display:grid;gap:32px;align-items:start}
+  .faq .section-head{margin-bottom:12px}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:12px 0;cursor:pointer;list-style:none;font:700 1.08rem/1.3 var(--display);letter-spacing:-.015em}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";flex-shrink:0;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--paper-2);font:500 1.3rem/1 var(--body);transition:transform .2s,background .2s}
+  .faq details[open] summary::after{transform:rotate(45deg);background:var(--lime)}
+  .faq details p{margin:0 0 20px;color:var(--muted);max-width:62ch}
+  .faq-side{display:flex;flex-direction:column;gap:20px;padding:28px;border-radius:24px;background:var(--ink);color:#fff}
+  .faq-side img{width:72px;height:72px;border-radius:18px;object-fit:cover}
+  .faq-side b{display:block;margin-bottom:8px;font:800 1.6rem/1.15 var(--display);letter-spacing:-.03em}
+  .faq-side p{color:#b9bdb0;margin-bottom:20px}
+  @media (min-width:960px){
+    .faq-grid{grid-template-columns:1.4fr 1fr;gap:56px}
+    .faq-side{position:sticky;top:calc(var(--header-h) + 24px);padding:36px}
+  }
+
+  /* ================= CTA FINAL ================= */
+  .cta-box{position:relative;overflow:hidden;padding:clamp(36px,6vw,72px) clamp(20px,5vw,64px);border-radius:28px;background:var(--ink);color:#fff}
+  .cta-box h2{max-width:16ch;font-size:clamp(1.9rem,1.3rem + 2.6vw,3.2rem)}
+  .cta-box p{max-width:46ch;color:#d9dccf;font-size:1.06rem;margin:0}
+  .cta-box .big{position:absolute;right:-10px;bottom:-30px;font:800 clamp(6rem,14vw,12rem)/1 var(--display);letter-spacing:-.06em;color:#d4fa4514;pointer-events:none;user-select:none}
+  .cta-box .actions{position:relative}
+
+  /* ================= RODAPÉ ================= */
+  .site-footer{margin-top:clamp(48px,7vw,96px);padding:56px 0 calc(28px + env(safe-area-inset-bottom));background:var(--paper-2);border-top:1px solid var(--line)}
+  .footer-grid{display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))}
+  .footer-grid .about{grid-column:1 / -1}
+  .footer-grid h3{margin:0 0 12px;font:800 .78rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+  .footer-grid ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:.93rem}
+  .footer-grid ul a{text-decoration:none;color:var(--muted)}
+  .footer-grid ul a:hover{color:var(--ink);text-decoration:underline}
+  .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+  @media (min-width:960px){.footer-grid{grid-template-columns:1.6fr 1fr 1fr 1fr}.footer-grid .about{grid-column:auto}}
+
+  /* ================= WHATSAPP FLUTUANTE ================= */
+  .float-wa{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:40;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#25D366;box-shadow:0 10px 26px #0000004d;transition:transform .2s}
+  .float-wa:hover{transform:scale(1.08)}
+  .float-wa svg{width:30px;height:30px;fill:#fff}
+
+  /* animação de entrada (só com JS ativo) */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .js .reveal.on{opacity:1;transform:none}
+
+  @media (hover:none){.btn:hover,.card:hover,.tile:hover{transform:none}}
   @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
     *,*::before,*::after{animation:none!important;transition:none!important}
-    .reveal{opacity:1;transform:none}
+    .js .reveal{opacity:1;transform:none}
   }
 </style>
 </head>
 <body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="wa" viewBox="0 0 32 32">
-      <path d="M16.04 3C8.86 3 3.030 8.82 3.03 16c0 2.3.6 4.53 1.74 6.5L3 29l6.68-1.75A12.95 12.95 0 0 0 16.04 29C23.2 29 29 23.18 29 16S23.2 3 16.04 3zm0 23.66c-2.03 0-4.02-.55-5.75-1.58l-.41-.24-3.96 1.04 1.06-3.86-.27-.4A10.6 10.6 0 0 1 5.4 16c0-5.87 4.77-10.64 10.65-10.64 5.86 0 10.63 4.77 10.63 10.64 0 5.88-4.77 10.66-10.64 10.66zm5.84-7.970c-.32-.16-1.89-.93-2.18-1.04-.3-.1-.5-.16-.72.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.3.32-1.12 1.09-1.12 2.66 0 1.57 1.14 3.09 1.3 3.3.16.21 2.25 3.43 5.44 4.81.76.33 1.35.52 1.82.67.76.24 1.46.21 2 .13.61-.09 1.89-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37z"/>
-    </symbol>
-  </defs>
+  <symbol id="wa" viewBox="0 0 32 32">
+    <path d="M16.04 3C8.86 3 3.03 8.82 3.03 16c0 2.3.6 4.53 1.74 6.5L3 29l6.68-1.75A12.95 12.95 0 0 0 16.04 29C23.2 29 29 23.18 29 16S23.2 3 16.04 3zm0 23.66c-2.03 0-4.02-.55-5.75-1.58l-.41-.24-3.96 1.04 1.06-3.86-.27-.4A10.6 10.6 0 0 1 5.4 16c0-5.87 4.77-10.64 10.65-10.64 5.86 0 10.63 4.77 10.63 10.64 0 5.88-4.77 10.66-10.64 10.66zm5.84-7.97c-.32-.16-1.89-.93-2.18-1.04-.3-.1-.5-.16-.72.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.3.32-1.12 1.09-1.12 2.66 0 1.57 1.14 3.09 1.3 3.3.16.21 2.25 3.43 5.44 4.81.76.33 1.35.52 1.82.67.76.24 1.46.21 2 .13.61-.09 1.89-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37z"/>
+  </symbol>
 </svg>
 
-<!-- ================= HERO ================= -->
-<div class="hero-frame" id="inicio">
-  <div class="hero">
-
-    <nav class="nav">
-      <ul class="bar">
-        <li><a href="#inicio" class="active">Início</a></li>
-        <li><a href="#vantagens">Vantagens</a></li>
-      </ul>
-      <div class="brand">
-        <a href="#inicio" class="brand" aria-label="Central de Achados"><img src="img/logo.jpeg" alt=""><b>Central de Achados</b></a>
-        <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      </div>
-      <ul class="bar">
-        <li><a href="#lojas">Lojas</a></li>
-        <li><a href="#como-funciona">Como Funciona</a></li>
-      </ul>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#inicio" class="logo" aria-label="Central de Achados, início">
+      <img src="img/logo-96.jpg" alt="" width="46" height="46">
+      <span class="logo-text"><b>central<span> de achados</span></b><small>achados fitness no seu WhatsApp</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-icon"><span></span></span>Menu</button>
+    <nav class="site-nav" id="menu" aria-label="Principal">
+      <a href="#categorias">Categorias</a>
+      <a href="#lojas">Lojas</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
     </nav>
-    <ul class="mobile-menu">
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#vantagens">Vantagens</a></li>
-      <li><a href="#lojas">Lojas</a></li>
-      <li><a href="#como-funciona">Como Funciona</a></li>
-    </ul>
+  </div>
+</header>
 
-    <main class="hero-grid">
-      <div class="copy">
-        <h1><span>Grupo VIP de</span><strong>Calçados</strong></h1>
-        <div class="rule"></div>
-        <p class="desc">Tênis, sapatos, sandálias e muito mais das melhores lojas, selecionados diariamente e enviados direto no seu WhatsApp. Tudo grátis!</p>
-      </div>
+<main id="conteudo">
 
-      <div class="panel" aria-hidden="true">
-        <div class="words"><span>Tênis</span><span>Sapatos</span><span>Sandálias</span></div>
-        <img class="photo" src="img/casal.png" alt="">
-      </div>
-    </main>
-
-    <div class="hero-cta">
-      <a class="btn js-whats" href="#" target="_blank" rel="noopener">
-        <svg viewBox="0 0 32 32"><use href="#wa"/></svg> Entrar no grupo
-      </a>
+<!-- ================= HERO ================= -->
+<section class="wrap hero" id="inicio" aria-labelledby="hero-titulo">
+  <div>
+    <h1 id="hero-titulo">Treine mais. <em>Gaste menos.</em></h1>
+    <p class="hero-lead">Encontre roupas, tênis, acessórios e suplementos fitness com ofertas diárias direto no seu WhatsApp.</p>
+    <div class="actions">
+      <a class="btn btn-lime btn-xl js-whats" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#wa"/></svg>Entrar no grupo</a>
     </div>
   </div>
-</div>
-
-<!-- ================= FAIXA DE LOJAS ================= -->
-<div class="stores" aria-hidden="true">
-  <div class="marquee">
-    <span>Amazon</span><span>Mercado Livre</span><span>Shopee</span>
-    <span>Netshoes</span><span>Centauro</span><span>Dafiti</span><span>Amazon</span><span>Mercado Livre</span><span>Shopee</span>
-    <span>Netshoes</span><span>Centauro</span><span>Dafiti</span>
+  <div class="hero-art">
+    <img src="img/casal.jpg" srcset="img/casal-640.jpg 640w, img/casal.jpg 1200w" sizes="(min-width:960px) 50vw, 100vw" width="1200" height="960" alt="Casal correndo ao ar livre com roupas de treino" fetchpriority="high">
+    <span class="hero-tag">Até 70% off</span>
+    <div class="hero-note"><b>Oferta tem prazo</b>Preço e cupom mudam rápido. No grupo você fica sabendo na hora.</div>
   </div>
-</div>
+</section>
 
-<!-- ================= VANTAGENS ================= -->
-<section class="sec" id="vantagens">
-  <div class="wrap">
-    <div class="head reveal">
-      <div>
-        <span class="eyebrow">Por que entrar?</span>
-        <h2>Vantagens <span>exclusivas</span></h2>
-        <div class="rule"></div>
-      </div>
+<div class="ticker" aria-hidden="true"><div>
+  LEGGING<span>✦</span>TOP<span>✦</span>TÊNIS<span>✦</span>HALTERES<span>✦</span>COQUETELEIRA<span>✦</span>MINI BAND<span>✦</span>CORDA DE PULAR<span>✦</span>SMARTWATCH<span>✦</span>BOLSA DE ACADEMIA<span>✦</span>CREATINA<span>✦</span>
+  LEGGING<span>✦</span>TOP<span>✦</span>TÊNIS<span>✦</span>HALTERES<span>✦</span>COQUETELEIRA<span>✦</span>MINI BAND<span>✦</span>CORDA DE PULAR<span>✦</span>SMARTWATCH<span>✦</span>BOLSA DE ACADEMIA<span>✦</span>CREATINA<span>✦</span>
+</div></div>
+
+<!-- ================= CATEGORIAS ================= -->
+<section class="wrap section" id="categorias" aria-labelledby="cat-titulo">
+  <div class="section-head reveal">
+    <div>
+      <span class="eyebrow">01 · O que você encontra</span>
+      <h2 id="cat-titulo">Tudo para o seu treino. <span class="underline-lime">Sempre em oferta.</span></h2>
+      <p>Postamos achados para academia, corrida e treino em casa, para homens e mulheres.</p>
     </div>
-    <div class="cards">
-      <div class="card reveal">
-        <span class="num">01</span>
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7A1.5 1.5 0 1 1 7 5.5 1.5 1.5 0 0 1 5.5 7z"/></svg></div>
-        <h3>Preços imperdíveis</h3>
-        <p>Cupons e descontos em tênis e sapatos garimpados a dedo para você pagar menos.</p>
-      </div>
-      <div class="card reveal">
-        <span class="num">02</span>
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
-        <h3>Compra segura</h3>
-        <p>Só links oficiais das lojas de calçados mais confiáveis do país.</p>
-      </div>
-      <div class="card reveal">
-        <span class="num">03</span>
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg></div>
-        <h3>Entrega para todo o Brasil</h3>
-        <p>Calçados com envio para qualquer cidade, direto na sua casa.</p>
-      </div>
-      <div class="card reveal">
-        <span class="num">04</span>
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg></div>
-        <h3>Ofertas todos os dias</h3>
-        <p>Novidades postadas diariamente: tênis, sapatos sociais, sandálias, chinelos, botas e mais.</p>
-      </div>
-    </div>
+    <a class="link-arrow js-whats" href="#" target="_blank" rel="noopener">Ver as ofertas de hoje ↗</a>
+  </div>
+  <div class="grid-cards">
+    <a class="card reveal js-whats" href="#" target="_blank" rel="noopener">
+      <div class="card-media"><img src="img/roupa-treino.webp" alt="Kit de camisetas e shorts de treino" loading="lazy" decoding="async" width="640" height="480"></div>
+      <div class="card-body"><span class="chip chip-lime">Roupas</span><h3>Roupas de treino</h3><p>Leggings, tops, shorts e conjuntos. Confira a tabela de medidas em centímetros antes de comprar.</p><div class="card-meta"><small>Ofertas no grupo</small><span aria-hidden="true">↗</span></div></div>
+    </a>
+    <a class="card reveal js-whats" href="#" target="_blank" rel="noopener">
+      <div class="card-media"><img src="img/tenis-treino.avif" alt="Tênis de treino" loading="lazy" decoding="async" width="640" height="480"></div>
+      <div class="card-body"><span class="chip chip-lavender">Calçados</span><h3>Tênis de treino</h3><p>Tênis para academia e corrida, com cupom e frete grátis quando aparece.</p><div class="card-meta"><small>Ofertas no grupo</small><span aria-hidden="true">↗</span></div></div>
+    </a>
+    <a class="card reveal js-whats" href="#" target="_blank" rel="noopener">
+      <div class="card-media"><img src="img/halteres.jpg" alt="Halteres para treino em casa" loading="lazy" decoding="async" width="640" height="480"></div>
+      <div class="card-body"><span class="chip chip-stone">Treino em casa</span><h3>Halteres e equipamentos</h3><p>Halteres, kettlebells, elásticos e tapetes para montar sua academia em casa.</p><div class="card-meta"><small>Ofertas no grupo</small><span aria-hidden="true">↗</span></div></div>
+    </a>
+    <a class="card reveal js-whats" href="#" target="_blank" rel="noopener">
+      <div class="card-media"><img src="img/acessorios-academia.webp" alt="Acessórios de academia" loading="lazy" decoding="async" width="640" height="480"></div>
+      <div class="card-body"><span class="chip chip-sage">Acessórios</span><h3>Acessórios de academia</h3><p>Garrafas, coqueteleiras, bolsas, luvas e cordas de pular para o dia a dia do treino.</p><div class="card-meta"><small>Ofertas no grupo</small><span aria-hidden="true">↗</span></div></div>
+    </a>
+    <a class="card reveal js-whats" href="#" target="_blank" rel="noopener">
+      <div class="card-media"><img src="img/garmin-relogio.webp" alt="Smartwatch esportivo" loading="lazy" decoding="async" width="640" height="480"></div>
+      <div class="card-body"><span class="chip chip-stone">Tecnologia</span><h3>Smartwatch e gadgets</h3><p>Relógios esportivos, fones sem fio e balanças de bioimpedância com preço baixo.</p><div class="card-meta"><small>Ofertas no grupo</small><span aria-hidden="true">↗</span></div></div>
+    </a>
+    <a class="card reveal js-whats" href="#" target="_blank" rel="noopener">
+      <div class="card-media"><img src="img/whey-protein.webp" alt="Pacote de whey protein" loading="lazy" decoding="async" width="640" height="480"></div>
+      <div class="card-body"><span class="chip chip-lime">Suplementos</span><h3>Suplementos</h3><p>Whey, creatina e outros suplementos de marcas conhecidas, quando o desconto vale a pena.</p><div class="card-meta"><small>Ofertas no grupo</small><span aria-hidden="true">↗</span></div></div>
+    </a>
   </div>
 </section>
 
 <!-- ================= LOJAS ================= -->
-<section class="sec shops" id="lojas">
-  <div class="wrap">
-    <div class="head reveal">
+<section class="band-lavender" id="lojas" aria-labelledby="lojas-titulo">
+  <div class="wrap section">
+    <div class="section-head reveal">
       <div>
-        <span class="eyebrow">Onde garimpamos</span>
-        <h2>As maiores <span>lojas</span></h2>
-        <div class="rule"></div>
+        <span class="eyebrow">02 · Onde garimpamos</span>
+        <h2 id="lojas-titulo">As lojas que você já conhece e confia</h2>
+        <p>Só enviamos links das lojas oficiais. A compra é feita direto no site delas.</p>
       </div>
-      <p>Calçados em oferta nas lojas que você já confia.</p>
     </div>
-    <div class="chips reveal">
-      <div class="chip">Netshoes</div>
-      <div class="chip">Centauro</div>
-      <div class="chip">Dafiti</div>
-      <div class="chip">Amazon</div>
-      <div class="chip">Mercado Livre</div>
-      <div class="chip">Shopee</div>
+    <p class="scroll-hint" aria-hidden="true">Deslize para ver mais →</p>
+    <div class="tiles">
+      <a class="tile tile-lime js-whats" href="#" target="_blank" rel="noopener"><h3>Netshoes</h3><p>Roupas, tênis e acessórios de treino com cupons exclusivos.</p><span class="link-arrow">Ver ofertas ↗</span></a>
+      <a class="tile js-whats" href="#" target="_blank" rel="noopener"><h3>Centauro</h3><p>Academia, corrida e equipamentos com preços de outlet.</p><span class="link-arrow">Ver ofertas ↗</span></a>
+      <a class="tile js-whats" href="#" target="_blank" rel="noopener"><h3>Dafiti</h3><p>Moda fitness, leggings e tops das marcas mais buscadas.</p><span class="link-arrow">Ver ofertas ↗</span></a>
+      <a class="tile js-whats" href="#" target="_blank" rel="noopener"><h3>Amazon</h3><p>Entrega rápida e promoções relâmpago todos os dias.</p><span class="link-arrow">Ver ofertas ↗</span></a>
+      <a class="tile js-whats" href="#" target="_blank" rel="noopener"><h3>Mercado Livre</h3><p>Halteres, suplementos e equipamentos de lojas oficiais.</p><span class="link-arrow">Ver ofertas ↗</span></a>
+      <a class="tile tile-lime js-whats" href="#" target="_blank" rel="noopener"><h3>Shopee</h3><p>Acessórios de treino baratinhos e cupons de frete toda semana.</p><span class="link-arrow">Ver ofertas ↗</span></a>
     </div>
   </div>
 </section>
 
 <!-- ================= COMO FUNCIONA ================= -->
-<section class="sec" id="como-funciona">
-  <div class="wrap">
-    <div class="head reveal">
-      <div>
-        <span class="eyebrow">Simples assim</span>
-        <h2>Como <span>funciona</span></h2>
-        <div class="rule"></div>
+<section class="wrap section" id="como-funciona" aria-labelledby="como-titulo">
+  <div class="section-head reveal">
+    <div>
+      <span class="eyebrow">03 · Como funciona</span>
+      <h2 id="como-titulo">Poucos passos até o seu achado fitness</h2>
+    </div>
+  </div>
+  <ol class="steps">
+    <li class="reveal"><h3>Clique no botão</h3><p>Toque em “Entrar no grupo” e o WhatsApp abre sozinho.</p></li>
+    <li class="reveal"><h3>Entre no grupo</h3><p>Confirme sua entrada no grupo da Central de Achados.</p></li>
+    <li class="reveal"><h3>Receba os achados</h3><p>As ofertas chegam no seu celular ao longo do dia.</p></li>
+    <li class="reveal"><h3>Compre na loja oficial</h3><p>O link leva direto para o site da loja. É só finalizar a compra.</p></li>
+  </ol>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="wrap section" id="duvidas" aria-labelledby="faq-titulo">
+  <div class="faq-grid">
+    <div class="faq">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Antes de perguntar</span>
+          <h2 id="faq-titulo">Dúvidas frequentes</h2>
+        </div>
       </div>
+      <details>
+        <summary>O grupo é pago?</summary>
+        <p>Não. Entrar e participar é 100% gratuito. Você só paga pelo que decidir comprar, direto na loja.</p>
+      </details>
+      <details>
+        <summary>A compra é feita com vocês?</summary>
+        <p>Não. Enviamos o link da oferta e a compra é feita no site oficial da loja, com a segurança, a entrega e a troca de lá.</p>
+      </details>
+      <details>
+        <summary>O grupo manda muita mensagem?</summary>
+        <p>Postamos as melhores ofertas ao longo do dia. Se preferir, deixe o grupo no silencioso e olhe quando quiser.</p>
+      </details>
+      <details>
+        <summary>Os preços podem mudar?</summary>
+        <p>Sim. Preço, cupom e estoque são definidos pelas lojas e podem mudar a qualquer momento. Por isso vale aproveitar rápido.</p>
+      </details>
+      <details>
+        <summary>Posso sair quando quiser?</summary>
+        <p>Pode. É só sair do grupo pelo próprio WhatsApp, sem nenhum compromisso.</p>
+      </details>
     </div>
-    <div class="steps">
-      <div class="step reveal"><b>01</b><h3>Clique no botão</h3><p>Toque em “Entrar no grupo” e abra o WhatsApp.</p></div>
-      <div class="step reveal"><b>02</b><h3>Entre no grupo</h3><p>Confirme sua entrada no grupo Central de Achados.</p></div>
-      <div class="step reveal"><b>03</b><h3>Aproveite as ofertas</h3><p>Receba os achados em calçados e economize em cada par.</p></div>
-    </div>
+    <aside class="faq-side reveal">
+      <img src="img/logo-192.jpg" alt="" width="72" height="72" loading="lazy" decoding="async">
+      <div>
+        <b>Ainda com dúvida?</b>
+        <p>Entre no grupo e veja as ofertas de hoje. Se não gostar, é só sair.</p>
+        <a class="btn btn-lime js-whats" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#wa"/></svg>Entrar no grupo</a>
+      </div>
+    </aside>
   </div>
 </section>
 
 <!-- ================= CTA FINAL ================= -->
-<section class="final" id="participar">
-  <div class="wrap">
-    <div class="box reveal">
-      <h2>Faça parte <span>agora!</span></h2>
-      <div class="rule"></div>
-      <p>Entre no grupo da Central de Achados e garanta seu próximo par com desconto hoje mesmo. É 100% gratuito.</p>
-      <a class="btn js-whats" href="#" target="_blank" rel="noopener">
-        <svg viewBox="0 0 32 32"><use href="#wa"/></svg> Entrar no grupo
-      </a>
+<section class="wrap" id="participar" aria-labelledby="cta-titulo">
+  <div class="cta-box reveal">
+    <h2 id="cta-titulo">Faça parte da Central de Achados agora</h2>
+    <p>Entre no grupo e monte seu kit de treino gastando menos, a partir de hoje.</p>
+    <div class="actions">
+      <a class="btn btn-lime btn-xl js-whats" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#wa"/></svg>Entrar no grupo</a>
     </div>
+    <span class="big" aria-hidden="true">achados</span>
   </div>
 </section>
 
-<footer>
+</main>
+
+<footer class="site-footer">
   <div class="wrap">
-    <a href="#inicio" class="brand"><img src="img/logo.jpeg" alt=""><b>Central de Achados</b></a>
-    <div>© <span id="ano"></span> Central de Achados · Todos os direitos reservados.
-      <small>Preços e disponibilidade são definidos pelas lojas e podem mudar sem aviso.</small></div>
+    <div class="footer-grid">
+      <div class="about">
+        <a href="#inicio" class="logo"><img src="img/logo-96.jpg" alt="" width="46" height="46" loading="lazy" decoding="async"><span class="logo-text"><b>central<span> de achados</span></b><small>achados fitness no seu WhatsApp</small></span></a>
+      </div>
+      <div>
+        <h3>Categorias</h3>
+        <ul>
+          <li><a href="#categorias">Roupas de treino</a></li>
+          <li><a href="#categorias">Tênis de treino</a></li>
+          <li><a href="#categorias">Treino em casa</a></li>
+          <li><a href="#categorias">Acessórios e suplementos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Lojas</h3>
+        <ul>
+          <li><a href="#lojas">Netshoes e Centauro</a></li>
+          <li><a href="#lojas">Dafiti</a></li>
+          <li><a href="#lojas">Amazon e Mercado Livre</a></li>
+          <li><a href="#lojas">Shopee</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>O grupo</h3>
+        <ul>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a class="js-whats" href="#" target="_blank" rel="noopener">Entrar no grupo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="ano">2026</span> Central de Achados · Todos os direitos reservados.</span>
+      <span>Site desenvolvido por <a href="https://wa.me/5514998382916?text=Ol%C3%A1!%20Vim%20pelo%20link%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20sites." target="_blank" rel="noopener">Kauã Ferreira</a></span>
+    </div>
   </div>
 </footer>
 
 <a class="float-wa js-whats" href="#" target="_blank" rel="noopener" aria-label="Entrar no grupo do WhatsApp">
-  <svg viewBox="0 0 32 32"><use href="#wa"/></svg>
+  <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#wa"/></svg>
 </a>
 
 <script>
@@ -411,23 +460,34 @@
   document.querySelectorAll('.js-whats').forEach(a => a.href = WHATSAPP_LINK);
   document.getElementById('ano').textContent = new Date().getFullYear();
 
-  // menu (hambúrguer)
-  const menu = document.querySelector('.mobile-menu');
-  const burger = document.querySelector('.burger');
-  burger.addEventListener('click', e => {
-    e.preventDefault();
-    const open = menu.classList.toggle('open');
-    burger.setAttribute('aria-expanded', open);
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open'); burger.setAttribute('aria-expanded', false);
-  }));
+  // borda no header ao rolar
+  const header = document.querySelector('.site-header');
+  const onScroll = () => header.toggleAttribute('data-scrolled', scrollY > 8);
+  onScroll();
+  addEventListener('scroll', onScroll, { passive: true });
 
-  // animação ao rolar
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
-  }, { threshold: .15 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // menu mobile
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('menu');
+  const setMenu = open => {
+    toggle.setAttribute('aria-expanded', open);
+    nav.toggleAttribute('data-open', open);
+    document.body.toggleAttribute('data-menu-open', open);
+  };
+  toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  nav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  // animação de entrada ao rolar
+  const items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+    }), { threshold: .12, rootMargin: '0px 0px -40px' });
+    items.forEach(el => io.observe(el));
+  } else {
+    items.forEach(el => el.classList.add('on'));
+  }
 </script>
 </body>
 </html>
