@@ -217,6 +217,14 @@
   .float-wa:hover{transform:scale(1.08)}
   .float-wa svg{width:30px;height:30px;fill:#fff}
 
+  /* ================= NOTIFICAÇÃO "ENTROU NO GRUPO" ================= */
+  .join-toast{position:fixed;left:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:45;display:flex;align-items:center;gap:12px;max-width:min(320px,calc(100% - 110px));padding:10px 14px 10px 10px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow);font-size:.85rem;line-height:1.3;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .35s,transform .35s}
+  .join-toast.show{opacity:1;transform:none}
+  .join-toast .av{flex-shrink:0;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--lime);font:800 1rem var(--display)}
+  .join-toast b{font-weight:700}
+  .join-toast small{display:flex;align-items:center;gap:5px;margin-top:2px;color:var(--muted);font-size:.75rem}
+  .join-toast small::before{content:"";width:7px;height:7px;border-radius:50%;background:#25D366}
+
   /* animação de entrada (só com JS ativo) */
   .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
   .js .reveal.on{opacity:1;transform:none}
@@ -453,6 +461,8 @@
   <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#wa"/></svg>
 </a>
 
+<div class="join-toast" aria-hidden="true"><span class="av"></span><div><b></b> acabou de entrar no grupo<small></small></div></div>
+
 <script>
   // >>>>>> COLE AQUI O LINK DO GRUPO DO WHATSAPP <<<<<<
   const WHATSAPP_LINK = "https://chat.whatsapp.com/G9qhAvIkoQrKGVJ8O54RMd";
@@ -488,6 +498,34 @@
   } else {
     items.forEach(el => el.classList.add('on'));
   }
+
+  // notificações "acabou de entrar no grupo"
+  (() => {
+    const NOMES = ['Ana Paula','Lucas','Mariana','Gabriel','Juliana','Rafael','Camila','Bruno','Larissa','Thiago','Beatriz','Felipe','Amanda','Matheus','Fernanda','Pedro','Letícia','Gustavo','Bianca','Rodrigo'];
+    const CIDADES = ['São Paulo, SP','Rio de Janeiro, RJ','Belo Horizonte, MG','Curitiba, PR','Porto Alegre, RS','Salvador, BA','Fortaleza, CE','Recife, PE','Goiânia, GO','Campinas, SP','Bauru, SP','Florianópolis, SC','Brasília, DF','Manaus, AM','Ribeirão Preto, SP'];
+    const PRIMEIRA = 5000, INTERVALO = [14000, 26000], VISIVEL = 5000, MAXIMO = 8;
+
+    const toast = document.querySelector('.join-toast');
+    const av = toast.querySelector('.av'), nome = toast.querySelector('b'), info = toast.querySelector('small');
+    const pick = a => a[Math.floor(Math.random() * a.length)];
+    const nomes = [...NOMES].sort(() => Math.random() - .5);
+    let n = 0, timer;
+
+    const show = () => {
+      if (document.hidden) return schedule();
+      const p = nomes[n % nomes.length];
+      av.textContent = p[0];
+      nome.textContent = p;
+      info.textContent = pick(CIDADES) + ' · agora';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), VISIVEL);
+      if (++n < MAXIMO) schedule();
+    };
+    const schedule = (ms = INTERVALO[0] + Math.random() * (INTERVALO[1] - INTERVALO[0])) => {
+      clearTimeout(timer); timer = setTimeout(show, ms);
+    };
+    schedule(PRIMEIRA);
+  })();
 </script>
 </body>
 </html>
